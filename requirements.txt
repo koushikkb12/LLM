@@ -1,0 +1,24 @@
+# Core – LLM training (7B LLaMA-2 from scratch)
+# On Vast.ai: PyTorch+CUDA is usually pre-installed. If not:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu121
+torch>=2.0.0
+transformers>=4.36.0
+datasets>=2.14.0
+accelerate>=0.25.0
+huggingface_hub>=0.20.0
+
+# Dataset decompression (mlfoundations/dclm-baseline-1.0 uses zstd)
+zstandard>=0.19.0
+
+# LLaMA/OpenLLaMA slow tokenizer (use_fast=False)
+sentencepiece>=0.1.99
+
+# 8-bit AdamW – required for 7B on 24GB VRAM
+bitsandbytes>=0.41.0
+
+# Logging (optional – omit if report_to="none" in config)
+wandb>=0.16.0
+
+# Optional – Flash Attention 2 for faster training & less VRAM
+# Uncomment and install separately (build can take a while):
+# pip install flash-attn --no-build-isolation
